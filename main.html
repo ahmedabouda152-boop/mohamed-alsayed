@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الألعاب التعليمية</title>
+    <link rel="stylesheet" href="main-style.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header with Navigation Tabs -->
+        <div class="main-header">
+            <h1 class="main-title">🎮 منصة الألعاب التعليمية 🎮</h1>
+            <div class="tab-navigation">
+                <button class="tab-btn active" id="gameTab" data-tab="game">
+                    🎯 لعبة الذاكرة
+                </button>
+                <button class="tab-btn" id="quizTab" data-tab="quiz">
+                    📝 اختبار JavaScript
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Section -->
+        <div class="tab-content active" id="gameSection">
+            <div class="game-container">
+                <div class="game-info">
+                    <div class="timer">
+                        <div>⏰ الوقت المتبقي</div>
+                        <div class="timer-value" id="gameTimer">05:00</div>
+                    </div>
+                    <div class="moves">
+                        <div>🔄 الحركات</div>
+                        <div class="moves-value" id="moves">0</div>
+                    </div>
+                    <div class="score">
+                        <div>⭐ النقاط</div>
+                        <div class="score-value" id="gameScore">0</div>
+                    </div>
+                </div>
+
+                <div class="game-board" id="gameBoard"></div>
+
+                <div class="game-controls">
+                    <button class="btn" id="startGameBtn">🚀 ابدأ اللعبة</button>
+                    <button class="btn" id="submitGameBtn" disabled>✅ إنهاء اللعبة</button>
+                    <button class="btn" id="resetGameBtn" disabled>🔄 إعادة اللعبة</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="tab-content" id="quizSection">
+            <div class="quiz-container">
+                <div class="quiz-info">
+                    <div class="timer-section">
+                        <div class="timer-label">⏰ الوقت المتبقي</div>
+                        <div class="timer-value" id="quizTimer">15:00</div>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-label">السؤال</div>
+                        <div class="progress-value" id="progress">1 / 10</div>
+                    </div>
+                    <div class="score-section">
+                        <div class="score-label">النقاط</div>
+                        <div class="score-value" id="quizScore">0</div>
+                    </div>
+                </div>
+
+                <div class="quiz-content" id="quizContent">
+                    <div class="welcome-screen" id="welcomeScreen">
+                        <h2>مرحباً بك في اختبار JavaScript!</h2>
+                        <p>يحتوي الاختبار على 10 أسئلة متنوعة في JavaScript</p>
+                        <ul>
+                            <li>⏱️ الوقت المحدد: 15 دقيقة</li>
+                            <li>🎯 كل سؤال صحيح = 10 نقاط</li>
+                            <li>❌ لا توجد خسارة نقاط للإجابة الخاطئة</li>
+                            <li>🔄 الأسئلة عشوائية وغير مكررة</li>
+                        </ul>
+                        <button class="btn start-btn" id="startQuizBtn">🚀 ابدأ الاختبار</button>
+                    </div>
+
+                    <div class="question-screen" id="questionScreen" style="display: none;">
+                        <div class="question-container">
+                            <h3 class="question-text" id="questionText"></h3>
+                            <div class="options-container" id="optionsContainer"></div>
+                        </div>
+                        <div class="question-controls">
+                            <button class="btn prev-btn" id="prevBtn" disabled>⬅️ السابق</button>
+                            <button class="btn next-btn" id="nextBtn">التالي ➡️</button>
+                            <button class="btn submit-btn" id="submitQuizBtn" style="display: none;">✅ إنهاء الاختبار</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Score Modal -->
+    <div class="modal" id="gameScoreModal">
+        <div class="modal-content">
+            <h2>🎉 انتهت اللعبة! 🎉</h2>
+            <div class="game-status" id="gameStatus"></div>
+            <div class="final-score">
+                النقاط: <span id="finalGameScore">0</span>
+            </div>
+            <div class="stars" id="stars"></div>
+            <div class="final-score">
+                الحركات: <span id="finalMoves">0</span>
+            </div>
+            <div class="rating-info">
+                <strong>نظام التقييم:</strong><br>
+                ⭐⭐⭐⭐⭐ = 8 حركات (مثالي)<br>
+                ⭐⭐⭐⭐ = 10 حركات أو أقل<br>
+                ⭐⭐⭐ = 12 حركة أو أقل<br>
+                ⭐⭐ = 14 حركة أو أقل<br>
+                ⭐ = أكثر من 14 حركة
+            </div>
+            <button class="btn" onclick="closeGameScoreModal()">إغلاق</button>
+        </div>
+    </div>
+
+    <!-- Quiz Results Modal -->
+    <div class="modal" id="quizResultsModal">
+        <div class="modal-content">
+            <h2>🎉 انتهى الاختبار! 🎉</h2>
+            <div class="final-results">
+                <div class="result-item">
+                    <span class="result-label">النقاط النهائية:</span>
+                    <span class="result-value" id="finalQuizScore">0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">الأسئلة الصحيحة:</span>
+                    <span class="result-value" id="correctAnswers">0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">النسبة المئوية:</span>
+                    <span class="result-value" id="percentage">0%</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">الوقت المستغرق:</span>
+                    <span class="result-value" id="timeUsed">0:00</span>
+                </div>
+            </div>
+            <div class="grade-info" id="gradeInfo"></div>
+            <div class="action-buttons">
+                <button class="btn" onclick="showAnswers()">📋 عرض الإجابات</button>
+                <button class="btn" onclick="restartQuiz()">🔄 إعادة الاختبار</button>
+                <button class="btn" onclick="closeQuizResults()">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Answers Modal -->
+    <div class="modal" id="quizAnswersModal">
+        <div class="modal-content">
+            <h2>📋 مراجعة الإجابات</h2>
+            <div class="answers-list" id="answersList"></div>
+            <button class="btn" onclick="closeQuizAnswers()">إغلاق</button>
+        </div>
+    </div>
+
+    <script src="main-script.js"></script>
+</body>
+</html>
