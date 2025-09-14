@@ -1,0 +1,121 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#51cf66;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#40c057;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="boardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34495e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Blackboard -->
+  <rect x="15" y="20" width="70" height="50" fill="url(#boardGradient)" rx="5"/>
+  <rect x="18" y="23" width="64" height="44" fill="#1a1a1a" rx="3"/>
+  
+  <!-- Chalk Text -->
+  <g stroke="#fff" stroke-width="2" fill="none">
+    <!-- Mathematical Equations -->
+    <line x1="25" y1="35" x2="35" y2="35"/>
+    <line x1="40" y1="30" x2="40" y2="40"/>
+    <line x1="45" y1="35" x2="55" y2="35"/>
+    <line x1="60" y1="30" x2="60" y2="40"/>
+    <line x1="65" y1="35" x2="75" y2="35"/>
+    
+    <!-- Plus Sign -->
+    <line x1="30" y1="30" x2="30" y2="40"/>
+    <line x1="25" y1="35" x2="35" y2="35"/>
+    
+    <!-- Equals Sign -->
+    <line x1="50" y1="32" x2="60" y2="32"/>
+    <line x1="50" y1="38" x2="60" y2="38"/>
+    
+    <!-- Numbers -->
+    <text x="25" y="50" font-family="Arial" font-size="8" fill="#fff">2</text>
+    <text x="30" y="50" font-family="Arial" font-size="8" fill="#fff">+</text>
+    <text x="35" y="50" font-family="Arial" font-size="8" fill="#fff">3</text>
+    <text x="50" y="50" font-family="Arial" font-size="8" fill="#fff">=</text>
+    <text x="55" y="50" font-family="Arial" font-size="8" fill="#fff">5</text>
+  </g>
+  
+  <!-- Mathematical Symbols -->
+  <g fill="#fff">
+    <!-- Pi Symbol -->
+    <text x="20" y="65" font-family="Arial" font-size="12" font-weight="bold">π</text>
+    
+    <!-- Square Root -->
+    <path d="M30,60 L35,55 L40,60 L45,55 L50,60" stroke="#fff" stroke-width="2" fill="none"/>
+    <line x1="50" y1="60" x2="50" y2="70" stroke="#fff" stroke-width="2"/>
+    
+    <!-- Infinity Symbol -->
+    <path d="M55,60 Q60,55 65,60 Q70,65 65,70 Q60,65 55,70 Q50,65 55,60" stroke="#fff" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Calculator -->
+  <g transform="translate(70, 15)">
+    <rect x="0" y="0" width="25" height="30" fill="url(#mathGradient)" rx="3"/>
+    <rect x="2" y="2" width="21" height="26" fill="#fff" rx="2"/>
+    
+    <!-- Calculator Screen -->
+    <rect x="3" y="3" width="19" height="8" fill="#000" rx="1"/>
+    <text x="12" y="9" text-anchor="middle" font-family="monospace" font-size="4" fill="#0f0">123</text>
+    
+    <!-- Calculator Buttons -->
+    <g fill="#51cf66">
+      <rect x="4" y="12" width="4" height="3" rx="1"/>
+      <rect x="9" y="12" width="4" height="3" rx="1"/>
+      <rect x="14" y="12" width="4" height="3" rx="1"/>
+      <rect x="19" y="12" width="4" height="3" rx="1"/>
+      
+      <rect x="4" y="16" width="4" height="3" rx="1"/>
+      <rect x="9" y="16" width="4" height="3" rx="1"/>
+      <rect x="14" y="16" width="4" height="3" rx="1"/>
+      <rect x="19" y="16" width="4" height="3" rx="1"/>
+      
+      <rect x="4" y="20" width="4" height="3" rx="1"/>
+      <rect x="9" y="20" width="4" height="3" rx="1"/>
+      <rect x="14" y="20" width="4" height="3" rx="1"/>
+      <rect x="19" y="20" width="4" height="3" rx="1"/>
+    </g>
+  </g>
+  
+  <!-- Ruler -->
+  <g transform="translate(10, 80)">
+    <rect x="0" y="0" width="60" height="8" fill="#ffd700" rx="2"/>
+    <rect x="0" y="2" width="60" height="4" fill="#fff" rx="1"/>
+    
+    <!-- Ruler Marks -->
+    <g stroke="#000" stroke-width="0.5">
+      <line x1="5" y1="0" x2="5" y2="8"/>
+      <line x1="10" y1="0" x2="10" y2="8"/>
+      <line x1="15" y1="0" x2="15" y2="8"/>
+      <line x1="20" y1="0" x2="20" y2="8"/>
+      <line x1="25" y1="0" x2="25" y2="8"/>
+      <line x1="30" y1="0" x2="30" y2="8"/>
+      <line x1="35" y1="0" x2="35" y2="8"/>
+      <line x1="40" y1="0" x2="40" y2="8"/>
+      <line x1="45" y1="0" x2="45" y2="8"/>
+      <line x1="50" y1="0" x2="50" y2="8"/>
+      <line x1="55" y1="0" x2="55" y2="8"/>
+    </g>
+  </g>
+  
+  <!-- Geometric Shapes -->
+  <g fill="#51cf66" opacity="0.7">
+    <!-- Triangle -->
+    <polygon points="75,75 80,70 85,75" fill="#51cf66"/>
+    
+    <!-- Circle -->
+    <circle cx="90" cy="75" r="5" fill="#51cf66"/>
+    
+    <!-- Square -->
+    <rect x="75" y="85" width="10" height="10" fill="#51cf66" rx="1"/>
+  </g>
+  
+  <!-- Decorative Elements -->
+  <g fill="#ffd700" opacity="0.6">
+    <polygon points="5,10 7,15 12,15 8,18 10,23 5,20 0,23 2,18 -2,15 3,15" transform="scale(0.5)"/>
+    <polygon points="85,5 87,10 92,10 88,13 90,18 85,15 80,18 82,13 78,10 83,10" transform="scale(0.4)"/>
+  </g>
+</svg>
